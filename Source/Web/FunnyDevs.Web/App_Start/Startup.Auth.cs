@@ -8,6 +8,9 @@ using Microsoft.Owin.Security.DataProtection;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using FunnyDevs.Web.Models;
+using FunnyDevs.Data;
+using FunnyDevs.Data.Config;
+using FunnyDevs.Data.Models;
 
 namespace FunnyDevs.Web
 {

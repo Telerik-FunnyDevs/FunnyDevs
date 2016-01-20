@@ -5,6 +5,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using FunnyDevs.Web.Models;
+using FunnyDevs.Data.Models;
+using FunnyDevs.Data.Config;
 
 namespace FunnyDevs.Web.Account
 {

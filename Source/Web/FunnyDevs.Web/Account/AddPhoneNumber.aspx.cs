@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using System.Threading.Tasks;
 using FunnyDevs.Web.Models;
+using FunnyDevs.Data.Config;
 
 namespace FunnyDevs.Web.Account
 {

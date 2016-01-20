@@ -386,7 +386,6 @@
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\NinjectWeb.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -419,10 +418,6 @@
     <ProjectReference Include="..\..\Common\FunnyDevs.Common\FunnyDevs.Common.csproj">
       <Project>{2beafb82-57dc-47b2-b012-c803848331cc}</Project>
       <Name>FunnyDevs.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Data\FunnyDevs.Data.Models\FunnyDevs.Data.Models.csproj">
-      <Project>{79552b05-0f47-4670-9ee2-01d8731b3f00}</Project>
-      <Name>FunnyDevs.Data.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Data\FunnyDevs.Data\FunnyDevs.Data.csproj">
       <Project>{5c1ac0f4-865b-49b6-85d7-2f984e27b1b4}</Project>
