@@ -35,7 +35,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -50,8 +67,33 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\FunnyDevs.Common\FunnyDevs.Common.csproj">
+      <Project>{2beafb82-57dc-47b2-b012-c803848331cc}</Project>
+      <Name>FunnyDevs.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\FunnyDevs.Data.Models\FunnyDevs.Data.Models.csproj">
+      <Project>{79552b05-0f47-4670-9ee2-01d8731b3f00}</Project>
+      <Name>FunnyDevs.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\FunnyDevs.Data\FunnyDevs.Data.csproj">
+      <Project>{5c1ac0f4-865b-49b6-85d7-2f984e27b1b4}</Project>
+      <Name>FunnyDevs.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\FunnyDevs.Services.Data\FunnyDevs.Services.Data.csproj">
+      <Project>{518f997b-ce1f-43c3-b858-ac4f0964ea93}</Project>
+      <Name>FunnyDevs.Services.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Web\FunnyDevs.Web\FunnyDevs.Web.csproj">
+      <Project>{8f0e4b7d-a9cf-4acd-a29b-d4b461f0f674}</Project>
+      <Name>FunnyDevs.Web</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
