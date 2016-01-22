@@ -3,9 +3,9 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <h1>DevBook<span class="cursor"></span></h1> 
+        <p class="lead">A great Facebook wannabe, that is intended for developers and l33t hackers alike, looking to socialize in a cool web application.</p>
+        <p><a href="/account/register" class="btn btn-primary btn-lg">Register &raquo;</a></p>
     </div>
 
     <div class="row">
@@ -39,4 +39,11 @@
         </div>
     </div>
 
+    <script>
+        $(function () {
+            setInterval(function () {
+                $('.cursor').toggle();
+            }, 800);
+        })
+    </script>
 </asp:Content>
