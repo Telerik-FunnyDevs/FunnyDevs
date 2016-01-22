@@ -1,13 +1,13 @@
-﻿using FunnyDevs.Data.Models;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using System;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-
-namespace FunnyDevs.Web.Account
+﻿namespace FunnyDevs.Web.Account
 {
+    using System;
+    using System.Linq;
+    using System.Web;
+    using System.Web.UI;
+    using FunnyDevs.Data.Models;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.Owin;
+
     public partial class Register : Page
     {
         protected void CreateUser_Click(object sender, EventArgs e)
@@ -23,10 +23,10 @@ namespace FunnyDevs.Web.Account
                 //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
                 //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
 
-                signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
+                signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
-            else 
+            else
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }

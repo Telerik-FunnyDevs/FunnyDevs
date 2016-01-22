@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using System;
-using System.Web;
-
-namespace FunnyDevs.Web.Account
+﻿namespace FunnyDevs.Web.Account
 {
+    using System;
+    using System.Web;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.Owin;   
+
     public partial class AddPhoneNumber : System.Web.UI.Page
     {
         protected void PhoneNumber_Click(object sender, EventArgs e)

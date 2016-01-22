@@ -1,10 +1,10 @@
-﻿using FunnyDevs.Data.Migrations;
-using FunnyDevs.Data.Models;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System.Data.Entity;
-
-namespace FunnyDevs.Data
+﻿namespace FunnyDevs.Data
 {
+    using System.Data.Entity;
+    using FunnyDevs.Data.Migrations;
+    using FunnyDevs.Data.Models;
+    using Microsoft.AspNet.Identity.EntityFramework;
+
     public class DbContext : IdentityDbContext<User>, IDbContext
     {
         public DbContext()

@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using System;
-using System.Web;
-
-namespace FunnyDevs.Web.Account
+﻿namespace FunnyDevs.Web.Account
 {
+    using System;
+    using System.Web;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.Owin;
+
     public partial class ManagePassword : System.Web.UI.Page
     {
         protected string SuccessMessage
@@ -55,7 +55,7 @@ namespace FunnyDevs.Web.Account
                 if (result.Succeeded)
                 {
                     var user = manager.FindById(User.Identity.GetUserId());
-                    signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
+                    signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                     Response.Redirect("~/Account/Manage?m=ChangePwdSuccess");
                 }
                 else
@@ -87,7 +87,7 @@ namespace FunnyDevs.Web.Account
         {
             foreach (var error in result.Errors)
             {
-                ModelState.AddModelError("", error);
+                ModelState.AddModelError(string.Empty, error);
             }
         }
     }
