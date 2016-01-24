@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using System;
-using System.Web;
-
-namespace FunnyDevs.Web.Account
+﻿namespace FunnyDevs.Web.Account
 {
+    using System;
+    using System.Web;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.Owin;
+
     public partial class Manage : System.Web.UI.Page
     {
         protected string SuccessMessage
@@ -30,7 +30,7 @@ namespace FunnyDevs.Web.Account
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
-            HasPhoneNumber = String.IsNullOrEmpty(manager.GetPhoneNumber(User.Identity.GetUserId()));
+            HasPhoneNumber = string.IsNullOrEmpty(manager.GetPhoneNumber(User.Identity.GetUserId()));
 
             // Enable this after setting up two-factor authentientication
             //PhoneNumber.Text = manager.GetPhoneNumber(User.Identity.GetUserId()) ?? String.Empty;
@@ -67,18 +67,17 @@ namespace FunnyDevs.Web.Account
                         : message == "RemoveLoginSuccess" ? "The account was removed."
                         : message == "AddPhoneNumberSuccess" ? "Phone number has been added"
                         : message == "RemovePhoneNumberSuccess" ? "Phone number was removed"
-                        : String.Empty;
-                    successMessage.Visible = !String.IsNullOrEmpty(SuccessMessage);
+                        : string.Empty;
+                    successMessage.Visible = !string.IsNullOrEmpty(SuccessMessage);
                 }
             }
         }
-
 
         private void AddErrors(IdentityResult result)
         {
             foreach (var error in result.Errors)
             {
-                ModelState.AddModelError("", error);
+                ModelState.AddModelError(string.Empty, error);
             }
         }
 
@@ -92,6 +91,7 @@ namespace FunnyDevs.Web.Account
             {
                 return;
             }
+
             var user = manager.FindById(User.Identity.GetUserId());
             if (user != null)
             {
@@ -109,7 +109,7 @@ namespace FunnyDevs.Web.Account
             Response.Redirect("/Account/Manage");
         }
 
-        //EnableTwoFactorAuthentication 
+        //EnableTwoFactorAuthentication
         protected void TwoFactorEnable_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();

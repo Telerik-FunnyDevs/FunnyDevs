@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using System;
-using System.Web;
-using System.Web.UI;
-
-namespace FunnyDevs.Web.Account
+﻿namespace FunnyDevs.Web.Account
 {
+    using System;
+    using System.Web;
+    using System.Web.UI;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.Owin;
+
     public partial class Confirm : Page
     {
         protected string StatusMessage
@@ -28,6 +28,7 @@ namespace FunnyDevs.Web.Account
                     return;
                 }
             }
+
             successPanel.Visible = false;
             errorPanel.Visible = true;
         }
