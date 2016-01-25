@@ -5,17 +5,17 @@ using System.Data.Entity;
 
 namespace FunnyDevs.Data
 {
-    public class DbContext : IdentityDbContext<User>, IDbContext
+    public class FDDbContext : IdentityDbContext<User>, IDbContext
     {
-        public DbContext()
+        public FDDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DbContext, Configuration>());
         }
 
-        public static DbContext Create()
+        //public virtual IDbSet<Event> Events { get; set; }
+        public static FDDbContext Create()
         {
-            return new DbContext();
+            return new FDDbContext();
         }
     }
 }
