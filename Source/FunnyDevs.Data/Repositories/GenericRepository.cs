@@ -1,9 +1,9 @@
 ﻿namespace Exam.Data.Repositories
 {
+    using FunnyDevs.Data;
     using System;
     using System.Data.Entity;
     using System.Linq;
-    using FunnyDevs.Data;
 
     public class GenericRepository<T> : IRepository<T> where T : class
     {

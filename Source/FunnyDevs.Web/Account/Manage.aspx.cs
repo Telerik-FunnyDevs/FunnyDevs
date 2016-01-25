@@ -1,10 +1,10 @@
-﻿namespace FunnyDevs.Web.Account
-{
-    using System;
-    using System.Web;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.Owin;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using System;
+using System.Web;
 
+namespace FunnyDevs.Web.Account
+{
     public partial class Manage : System.Web.UI.Page
     {
         protected string SuccessMessage
@@ -30,7 +30,7 @@
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
-            HasPhoneNumber = string.IsNullOrEmpty(manager.GetPhoneNumber(User.Identity.GetUserId()));
+            HasPhoneNumber = String.IsNullOrEmpty(manager.GetPhoneNumber(User.Identity.GetUserId()));
 
             // Enable this after setting up two-factor authentientication
             //PhoneNumber.Text = manager.GetPhoneNumber(User.Identity.GetUserId()) ?? String.Empty;
@@ -67,17 +67,18 @@
                         : message == "RemoveLoginSuccess" ? "The account was removed."
                         : message == "AddPhoneNumberSuccess" ? "Phone number has been added"
                         : message == "RemovePhoneNumberSuccess" ? "Phone number was removed"
-                        : string.Empty;
-                    successMessage.Visible = !string.IsNullOrEmpty(SuccessMessage);
+                        : String.Empty;
+                    successMessage.Visible = !String.IsNullOrEmpty(SuccessMessage);
                 }
             }
         }
+
 
         private void AddErrors(IdentityResult result)
         {
             foreach (var error in result.Errors)
             {
-                ModelState.AddModelError(string.Empty, error);
+                ModelState.AddModelError("", error);
             }
         }
 
@@ -91,7 +92,6 @@
             {
                 return;
             }
-
             var user = manager.FindById(User.Identity.GetUserId());
             if (user != null)
             {
@@ -109,7 +109,7 @@
             Response.Redirect("/Account/Manage");
         }
 
-        //EnableTwoFactorAuthentication
+        //EnableTwoFactorAuthentication 
         protected void TwoFactorEnable_Click(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();

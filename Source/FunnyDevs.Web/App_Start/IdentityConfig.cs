@@ -1,16 +1,16 @@
-﻿namespace FunnyDevs.Web
-{
-    using System;
-    using System.Security.Claims;
-    using System.Threading.Tasks;
-    using FunnyDevs.Data;
-    using FunnyDevs.Data.Models;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using Microsoft.AspNet.Identity.Owin;
-    using Microsoft.Owin;
-    using Microsoft.Owin.Security;
+﻿using System;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin;
+using Microsoft.Owin.Security;
+using FunnyDevs.Data.Models;
+using FunnyDevs.Data;
 
+namespace FunnyDevs.Web
+{
     public class EmailService : IIdentityMessageService
     {
         public Task SendAsync(IdentityMessage message)
@@ -59,19 +59,15 @@
 
             // Register two factor authentication providers. This application uses Phone and Emails as a step of receiving a code for verifying the user
             // You can write your own provider and plug it in here.
-            manager.RegisterTwoFactorProvider(
-                                            "Phone Code", 
-                                            new PhoneNumberTokenProvider<User>
-                                                {
-                                                    MessageFormat = "Your security code is {0}"
-                                                });
-            manager.RegisterTwoFactorProvider(
-                "Email Code", 
-                new EmailTokenProvider<User>
-                    {
-                        Subject = "Security Code",
-                        BodyFormat = "Your security code is {0}"
-                    });
+            manager.RegisterTwoFactorProvider("Phone Code", new PhoneNumberTokenProvider<User>
+            {
+                MessageFormat = "Your security code is {0}"
+            });
+            manager.RegisterTwoFactorProvider("Email Code", new EmailTokenProvider<User>
+            {
+                Subject = "Security Code",
+                BodyFormat = "Your security code is {0}"
+            });
 
             // Configure user lockout defaults
             manager.UserLockoutEnabledByDefault = true;
@@ -85,7 +81,6 @@
             {
                 manager.UserTokenProvider = new DataProtectorTokenProvider<User>(dataProtectionProvider.Create("ASP.NET Identity"));
             }
-
             return manager;
         }
     }
@@ -93,9 +88,7 @@
     public class ApplicationSignInManager : SignInManager<User, string>
     {
         public ApplicationSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager) :
-            base(userManager, authenticationManager)
-        {
-        }
+            base(userManager, authenticationManager) { }
 
         public override Task<ClaimsIdentity> CreateUserIdentityAsync(User user)
         {

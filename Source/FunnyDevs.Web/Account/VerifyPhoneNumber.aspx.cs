@@ -1,17 +1,17 @@
-﻿namespace FunnyDevs.Web.Account
-{
-    using System;
-    using System.Web;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.Owin;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using System;
+using System.Web;
 
+namespace FunnyDevs.Web.Account
+{
     public partial class VerifyPhoneNumber : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var phonenumber = Request.QueryString["PhoneNumber"];
-            var code = manager.GenerateChangePhoneNumberToken(User.Identity.GetUserId(), phonenumber);
+            var code = manager.GenerateChangePhoneNumberToken(User.Identity.GetUserId(), phonenumber);           
             PhoneNumber.Value = phonenumber;
         }
 
@@ -19,7 +19,7 @@
         {
             if (!ModelState.IsValid)
             {
-                ModelState.AddModelError(string.Empty, "Invalid code");
+                ModelState.AddModelError("", "Invalid code");
                 return;
             }
 
@@ -40,7 +40,7 @@
             }
 
             // If we got this far, something failed, redisplay form
-            ModelState.AddModelError(string.Empty, "Failed to verify phone");
+            ModelState.AddModelError("", "Failed to verify phone");
         }
     }
 }

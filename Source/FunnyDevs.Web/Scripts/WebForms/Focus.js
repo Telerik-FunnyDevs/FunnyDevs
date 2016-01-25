@@ -35,7 +35,7 @@ function WebForm_AutoFocus(focusId) {
         targetControl = document.all[focusId];
     }
     var focused = targetControl;
-    if (targetControl && (!WebForm_CanFocus(targetControl))) {
+    if (targetControl && (!WebForm_CanFocus(targetControl)) ) {
         focused = WebForm_FindFirstFocusableChild(targetControl);
     }
     if (focused) {
@@ -70,16 +70,16 @@ function WebForm_IsFocusableTag(tagName) {
 }
 function WebForm_IsInVisibleContainer(ctrl) {
     var current = ctrl;
-    while ((typeof (current) != "undefined") && (current != null)) {
+    while((typeof(current) != "undefined") && (current != null)) {
         if (current.disabled ||
-            (typeof (current.style) != "undefined" &&
-            ((typeof (current.style.display) != "undefined" &&
+            ( typeof(current.style) != "undefined" &&
+            ( ( typeof(current.style.display) != "undefined" &&
                 current.style.display == "none") ||
-                (typeof (current.style.visibility) != "undefined" &&
-                current.style.visibility == "hidden")))) {
+                ( typeof(current.style.visibility) != "undefined" &&
+                current.style.visibility == "hidden") ) ) ) {
             return false;
         }
-        if (typeof (current.parentNode) != "undefined" &&
+        if (typeof(current.parentNode) != "undefined" &&
                 current.parentNode != null &&
                 current.parentNode != current &&
                 current.parentNode.tagName.toLowerCase() != "body") {

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Two-Factor Authentication" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TwoFactorAuthenticationSignIn.aspx.cs" Inherits="FunnyDevs.Web.Account.TwoFactorAuthenticationSignIn" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
+        <h2><%: Title %>.</h2>
     <asp:PlaceHolder runat="server" ID="sendcode">
         <section>
             <h4>Send verification code</h4>
@@ -9,9 +9,8 @@
             <div class="row">
                 <div class="col-md-12">
                     Select Two-Factor Authentication Provider:
-
-                    <asp:DropDownList runat="server" ID="Providers">
-                    </asp:DropDownList>
+            <asp:DropDownList runat="server" ID="Providers">
+            </asp:DropDownList>
                     <asp:Button Text="Submit" ID="ProviderSubmit" OnClick="ProviderSubmit_Click" CssClass="btn btn-default" runat="server" />
                 </div>
             </div>

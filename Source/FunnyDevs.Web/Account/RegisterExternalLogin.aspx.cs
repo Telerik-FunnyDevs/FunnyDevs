@@ -1,41 +1,40 @@
-﻿namespace FunnyDevs.Web.Account
-{
-    using System;
-    using System.Web;
-    using FunnyDevs.Data.Models;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.Owin;
-    using Microsoft.Owin.Security;   
+﻿using FunnyDevs.Data.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using System;
+using System.Web;
 
+namespace FunnyDevs.Web.Account
+{
     public partial class RegisterExternalLogin : System.Web.UI.Page
     {
         protected string ProviderName
         {
-            get { return (string)ViewState["ProviderName"] ?? string.Empty; }
+            get { return (string)ViewState["ProviderName"] ?? String.Empty; }
             private set { ViewState["ProviderName"] = value; }
         }
 
         protected string ProviderAccountKey
         {
-            get { return (string)ViewState["ProviderAccountKey"] ?? string.Empty; }
+            get { return (string)ViewState["ProviderAccountKey"] ?? String.Empty; }
             private set { ViewState["ProviderAccountKey"] = value; }
         }
 
         private void RedirectOnFail()
         {
-            Response.Redirect(User.Identity.IsAuthenticated ? "~/Account/Manage" : "~/Account/Login");
+            Response.Redirect((User.Identity.IsAuthenticated) ? "~/Account/Manage" : "~/Account/Login");
         }
 
         protected void Page_Load()
         {
             // Process the result from an auth provider in the request
             ProviderName = IdentityHelper.GetProviderNameFromRequest(Request);
-            if (string.IsNullOrEmpty(ProviderName))
+            if (String.IsNullOrEmpty(ProviderName))
             {
                 RedirectOnFail();
                 return;
             }
-
             if (!IsPostBack)
             {
                 var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
@@ -46,7 +45,6 @@
                     RedirectOnFail();
                     return;
                 }
-
                 var user = manager.Find(loginInfo.Login);
                 if (user != null)
                 {
@@ -79,8 +77,8 @@
                     email.Text = loginInfo.Email;
                 }
             }
-        }
-
+        }        
+        
         protected void LogIn_Click(object sender, EventArgs e)
         {
             CreateAndLoginUser();
@@ -92,7 +90,6 @@
             {
                 return;
             }
-
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
             var user = new User() { UserName = email.Text, Email = email.Text };
@@ -105,7 +102,6 @@
                     RedirectOnFail();
                     return;
                 }
-
                 result = manager.AddLogin(user.Id, loginInfo.Login);
                 if (result.Succeeded)
                 {
@@ -119,15 +115,14 @@
                     return;
                 }
             }
-
             AddErrors(result);
         }
 
-        private void AddErrors(IdentityResult result)
+        private void AddErrors(IdentityResult result) 
         {
-            foreach (var error in result.Errors)
+            foreach (var error in result.Errors) 
             {
-                ModelState.AddModelError(string.Empty, error);
+                ModelState.AddModelError("", error);
             }
         }
     }

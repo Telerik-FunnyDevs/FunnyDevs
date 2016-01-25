@@ -1,16 +1,16 @@
-﻿namespace FunnyDevs.Web
-{
-    using System;
-    using FunnyDevs.Data;
-    using FunnyDevs.Data.Models;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.Owin;
-    using Microsoft.Owin;
-    using Microsoft.Owin.Security.Cookies;
-    using Owin;
+﻿using FunnyDevs.Data;
+using FunnyDevs.Data.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin;
+using Microsoft.Owin.Security.Cookies;
+using Owin;
+using System;
 
-    public partial class Startup
-    {
+namespace FunnyDevs.Web
+{
+    public partial class Startup {
+
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301883
         public void ConfigureAuth(IAppBuilder app)
         {

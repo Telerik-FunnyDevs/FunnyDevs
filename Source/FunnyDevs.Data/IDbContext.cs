@@ -1,9 +1,9 @@
-﻿namespace FunnyDevs.Data
-{
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
-    using FunnyDevs.Data.Models;
+﻿using FunnyDevs.Data.Models;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
+namespace FunnyDevs.Data
+{
     public interface IDbContext
     {
         IDbSet<User> Users { get; set; }
