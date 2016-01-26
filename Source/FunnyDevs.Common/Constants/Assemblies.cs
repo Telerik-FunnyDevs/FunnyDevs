@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace FunnyDevs.Common.Constants
 {
-    class Assemblies
+    public class Assemblies
     {
+        public const string DataServices = "FunnyDevs.Services";
     }
 }

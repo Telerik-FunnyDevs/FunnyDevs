@@ -10,7 +10,10 @@ namespace FunnyDevs.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
-
+    using Ninject.Extensions.Conventions;
+    using Data;
+    using Exam.Data.Repositories;
+    using Common.Constants;
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -61,6 +64,12 @@ namespace FunnyDevs.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-        }        
+            kernel.Bind<IFDDbContext>().To<FDDbContext>().InRequestScope();
+            kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
+            kernel.Bind(b => b
+                .From(Assemblies.DataServices)
+                .SelectAllClasses()
+                .BindDefaultInterface());
+        }
     }
 }
