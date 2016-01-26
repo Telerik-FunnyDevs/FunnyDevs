@@ -13,5 +13,9 @@ namespace FunnyDevs.Web.Events
         {
 
         }
+
+        protected void Btn_AddCar(object sender, EventArgs e)
+        {
+        }
     }
 }
