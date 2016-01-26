@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FunnyDevs.Data;
+using FunnyDevs.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +14,12 @@ namespace FunnyDevs.Web.Events
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public IQueryable<Event> GridViewAll_GetData()
+        {
+            var cars = FDDbContext.Create() ;
+            return cars;
         }
     }
 }
