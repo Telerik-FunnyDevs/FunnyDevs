@@ -17,25 +17,25 @@
                                 <table class="table table-striped table-hover">
                                     <tr>
                                         <th class="text-center">
-                                            <asp:Literal Text="Image" runat="server" />
+                                            <asp:Literal Text="Tittle" runat="server" />
                                         </th>
                                         <th class="text-center">
-                                            <asp:LinkButton Text="Name" runat="server"
-                                                ID="SortByModel"
+                                            <asp:LinkButton Text="Location" runat="server"
+                                                ID="LocationSort"
+                                                CommandName="Sort"
+                                                CommandArgument="Location" />
+                                        </th>
+                                        <th class="text-center">
+                                            <asp:LinkButton Text="Description" runat="server"
+                                                ID="DescriptionSort"
                                                 CommandName="Sort"
                                                 CommandArgument="Description" />
                                         </th>
                                         <th class="text-center">
-                                            <asp:LinkButton Text="Description" runat="server"
-                                                ID="SortByCarType"
+                                            <asp:LinkButton Text="Date" runat="server"
+                                                ID="DateSort"
                                                 CommandName="Sort"
-                                                CommandArgument="CarType" />
-                                        </th>
-                                        <th class="text-center">
-                                            <asp:LinkButton Text="Location" runat="server"
-                                                ID="SortByFuelEconomy"
-                                                CommandName="Sort"
-                                                CommandArgument="FuelEconomy" />
+                                                CommandArgument="Dae" />
                                         </th>
                                     </tr>
                                     <asp:PlaceHolder ID="itemplaceholder" runat="server" />
@@ -45,13 +45,16 @@
                             <ItemTemplate runat="server">
                                 <tr>
                                     <td>
-                                        <asp:Image ImageUrl='<%#: Item.Tittle %>' Width="50px" runat="server" />
+                                        <asp:Label Text='<%#: Item.Tittle %>' Width="50px" runat="server" />
+                                    </td>
+                                    <td>
+                                        <asp:Label Text='<%#: Item.Location %>' runat="server" />
                                     </td>
                                     <td>
                                         <asp:Label Text='<%#: Item.Description %>' runat="server" />
                                     </td>
-                                    <td>
-                                        <asp:Label Text='<%#: Item.Location %>' runat="server" />
+                                      <td>
+                                        <asp:Label Text='<%#: Item.Date %>' runat="server" />
                                     </td>
                                    <!-- <td>
                                         <asp:HyperLink NavigateUrl='<%#: string.Format("~/Cars/CarDetails.aspx?id={0}", Item.Id) %>' runat="server"> Details
