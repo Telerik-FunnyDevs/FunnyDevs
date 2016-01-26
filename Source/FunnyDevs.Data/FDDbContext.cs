@@ -5,7 +5,7 @@ using System.Data.Entity;
 
 namespace FunnyDevs.Data
 {
-    public class FDDbContext : IdentityDbContext<User>, IDbContext
+    public class FDDbContext : IdentityDbContext<User>, IFDDbContext
     {
         public FDDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

@@ -7,7 +7,7 @@
 
     public class GenericRepository<T> : IRepository<T> where T : class
     {
-        public GenericRepository(IDbContext context)
+        public GenericRepository(IFDDbContext context)
         {
             if (context == null)
             {
@@ -20,7 +20,7 @@
 
         protected IDbSet<T> DbSet { get; set; }
 
-        protected IDbContext Context { get; set; }
+        protected IFDDbContext Context { get; set; }
 
         public virtual IQueryable<T> All()
         {
