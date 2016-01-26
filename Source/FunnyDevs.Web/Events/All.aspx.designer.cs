@@ -13,12 +13,12 @@ namespace FunnyDevs.Web.Events {
     public partial class All {
         
         /// <summary>
-        /// ViewAllCars control.
+        /// ViewAllEvents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ViewAllCars;
+        protected global::System.Web.UI.WebControls.ListView ViewAllEvents;
     }
 }

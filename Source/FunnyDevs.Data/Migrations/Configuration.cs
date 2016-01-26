@@ -3,6 +3,7 @@ namespace FunnyDevs.Data.Migrations
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
+    using System;
     using System.Data.Entity.Migrations;
     using System.Linq;
     public sealed class Configuration : DbMigrationsConfiguration<FDDbContext>
@@ -33,6 +34,20 @@ namespace FunnyDevs.Data.Migrations
 
             //    userManager.AddToRole(admin.Id, roleName);
             //}
+
+            var eventTest = new Event
+            {
+                Date = DateTime.Now,
+                Tittle = "Test",
+                Description = "TestDescription",
+                Location = "Here",
+                GPSLan = "0",
+                GPSLong = "0",
+                Public = true
+            };
+
+            context.Events.Add(eventTest);
+            context.SaveChanges();
         }
     }
 }
