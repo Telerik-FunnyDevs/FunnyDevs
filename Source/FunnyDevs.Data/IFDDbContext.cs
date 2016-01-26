@@ -4,7 +4,7 @@ using System.Data.Entity.Infrastructure;
 
 namespace FunnyDevs.Data
 {
-    public interface IDbContext
+    public interface IFDDbContext
     {
         IDbSet<User> Users { get; set; }
 

@@ -8,6 +8,8 @@ namespace FunnyDevs.Data.Models
 {
     public class Event
     {
+        public int Id { get; set; }
+
         public string Tittle { get; set; }
 
         public string Description { get; set; }
@@ -22,7 +24,7 @@ namespace FunnyDevs.Data.Models
 
         public bool Public { get; set; }
 
-        public virtual User Creator { get; set; }
+        //public virtual User Creator { get; set; }
 
     }
 }
