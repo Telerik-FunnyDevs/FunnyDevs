@@ -12,7 +12,7 @@ namespace FunnyDevs.Data
         {
         }
 
-        //public virtual IDbSet<Event> Events { get; set; }
+        public virtual IDbSet<Event> Events { get; set; }
         public static FDDbContext Create()
         {
             return new FDDbContext();
