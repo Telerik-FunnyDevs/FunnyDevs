@@ -34,7 +34,10 @@ namespace FunnyDevs.Data.Migrations
 
             //    userManager.AddToRole(admin.Id, roleName);
             //}
-
+            if (context.Events.Any())
+            {
+                return;
+            }
             var eventTest = new Event
             {
                 Date = DateTime.Now,
