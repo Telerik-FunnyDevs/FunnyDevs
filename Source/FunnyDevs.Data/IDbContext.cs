@@ -8,6 +8,8 @@ namespace FunnyDevs.Data
     {
         IDbSet<User> Users { get; set; }
 
+        IDbSet<Event> Events { get; set; }
+
         DbSet<TEntity> Set<TEntity>() where TEntity : class;
 
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
